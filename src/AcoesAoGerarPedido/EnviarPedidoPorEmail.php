@@ -3,12 +3,13 @@
 namespace Alura\DesignPattern\AcoesAoGerarPedido;
 
 use Alura\DesignPattern\Pedido;
+use SplSubject;
 
-class EnviarPedidoPorEmail implements AcoesAposGerarPedido
+class EnviarPedidoPorEmail implements \SplObserver
 {
-    public function executaAcao(Pedido $pedido)
-    {
-        echo 'Envia email para cliente' . PHP_EOL;
-    }
 
+    public function update(SplSubject $subject)
+    {
+        echo 'Envia email para cliente: '. $subject->pedido->cliente . PHP_EOL;
+    }
 }
