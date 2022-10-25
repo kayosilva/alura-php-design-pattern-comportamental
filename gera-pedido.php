@@ -23,4 +23,7 @@ $nomeCliente    = $argv[3];
 $gerarPedido = new \Alura\DesignPattern\GerarPedido($valorOrcamento, $numeroDeItens, $nomeCliente);
 
 $handler = new \Alura\DesignPattern\GerarPedidoHandler();
+$handler->adicionarAcaoAoGerarPedido(new \Alura\DesignPattern\AcoesAoGerarPedido\CriarPedidoNoBanco());
+$handler->adicionarAcaoAoGerarPedido(new \Alura\DesignPattern\AcoesAoGerarPedido\EnviarPedidoPorEmail());
+$handler->adicionarAcaoAoGerarPedido(new \Alura\DesignPattern\AcoesAoGerarPedido\LogGerarPedido());
 $handler->execute($gerarPedido);
