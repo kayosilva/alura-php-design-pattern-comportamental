@@ -3,6 +3,7 @@
 namespace Alura\DesignPattern;
 
 use Alura\DesignPattern\EstadosOrcamento\EmAprovacao;
+use Alura\DesignPattern\EstadosOrcamento\EstadoOrcamento;
 
 class Orcamento
 {
@@ -11,13 +12,13 @@ class Orcamento
 
     public int $quantidadeItens;
 
-    public EmAprovacao $estadoAtual;
+    public EstadoOrcamento $estadoAtual;
 
     public function __construct()
     {
         $this->estadoAtual = new EmAprovacao();
     }
-    
+
     public function aplicarDescontoExtra()
     {
         $this->valor = $this->estadoAtual->calculaDescontoExtra($this);
